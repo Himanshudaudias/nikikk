@@ -43,7 +43,7 @@ export function Layout({children, layout}) {
         /> 
   <main role="main" id="mainContent" className="flex-grow">
           {children} 
-        <FullPageScroll />
+        
       </main> 
       </div> 
     <Footer menu={layout?.footerMenu} />  
