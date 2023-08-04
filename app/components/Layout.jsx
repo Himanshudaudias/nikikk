@@ -1,4 +1,8 @@
-import {useIsHomePath} from '~/lib/utils';
+import {useParams, Form, Await, useMatches} from '@remix-run/react';
+import {useWindowScroll} from 'react-use';
+import {Disclosure} from '@headlessui/react';
+import {Suspense, useEffect, useMemo} from 'react';
+import {CartForm} from '@shopify/hydrogen';
 import {
   Drawer,
   useDrawer,
@@ -16,46 +20,30 @@ import {
   Cart,
   CartLoading,
   Link,
-  Hero,
-  FullPageScroll,
 } from '~/components';
-import {useParams, Form, Await, useMatches} from '@remix-run/react';
-import {useWindowScroll} from 'react-use';
-import {Disclosure} from '@headlessui/react';
-import {Suspense, useEffect, useMemo} from 'react';
+import {useIsHomePath} from '~/lib/utils';
 import {useIsHydrated} from '~/hooks/useIsHydrated';
 import {useCartFetchers} from '~/hooks/useCartFetchers';
-import ReactDOM from 'react-dom';
-
 
 export function Layout({children, layout}) {
+  const {headerMenu, footerMenu} = layout;
   return (
     <>
-<main role="main" id="mainContent" className="flex-grow">
-<FullPageScroll />
-</main> 
-
-
-    {/* <div className="flex flex-col min-h-screen"> 
+      <div className="flex flex-col min-h-screen">
         <div className="">
           <a href="#mainContent" className="sr-only">
             Skip to content
           </a>
         </div>
-       <Header
-          title={layout?.shop.name ?? 'Hydrogen'}
-          menu={layout?.headerMenu}
-        /> 
-  <main role="main" id="mainContent" className="flex-grow">
-          {children} 
-        
-      </main> 
-      </div> 
-    <Footer menu={layout?.footerMenu} />   */}
+        {headerMenu && <Header title={layout.shop.name} menu={headerMenu} />}
+        <main role="main" id="mainContent" className="flex-grow">
+          {children}
+        </main>
+      </div>
+      {footerMenu && <Footer menu={footerMenu} />}
     </>
   );
 }
-
 
 function Header({title, menu}) {
   const isHome = useIsHomePath();
@@ -72,7 +60,7 @@ function Header({title, menu}) {
     closeDrawer: closeMenu,
   } = useDrawer();
 
-  const addToCartFetchers = useCartFetchers('ADD_TO_CART');
+  const addToCartFetchers = useCartFetchers(CartForm.ACTIONS.LinesAdd);
 
   // toggle cart drawer when adding to cart
   useEffect(() => {
@@ -175,7 +163,7 @@ function MobileHeader({title, isHome, openCart, openMenu}) {
         </button>
         <Form
           method="get"
-          action={params.lang ? `/${params.lang}/search` : '/search'}
+          action={params.locale ? `/${params.locale}/search` : '/search'}
           className="items-center gap-2 sm:flex"
         >
           <button
@@ -256,7 +244,7 @@ function DesktopHeader({isHome, menu, openCart, title}) {
       <div className="flex items-center gap-1">
         <Form
           method="get"
-          action={params.lang ? `/${params.lang}/search` : '/search'}
+          action={params.locale ? `/${params.locale}/search` : '/search'}
           className="flex items-center gap-2"
         >
           <Input
@@ -382,7 +370,7 @@ function Footer({menu}) {
   );
 }
 
-const FooterLink = ({item}) => {
+function FooterLink({item}) {
   if (item.to.startsWith('http')) {
     return (
       <a href={item.to} target={item.target} rel="noopener noreferrer">
@@ -396,7 +384,7 @@ const FooterLink = ({item}) => {
       {item.title}
     </Link>
   );
-};
+}
 
 function FooterMenu({menu}) {
   const styles = {
