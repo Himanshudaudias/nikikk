@@ -1,14 +1,10 @@
 import React from 'react';
-import Fullpage, { FullPageSections, FullpageSection } from "@ap.cx/react-fullpage";
-import Fade from 'react-reveal/Fade';
-import Zoom from 'react-reveal/Zoom';
 import spalcevideo from '../images/splash-video-new.mp4';
 import bannerimg from '../images/bannerimg.webp';
 import blackimg from '../images/sava-text-testimonial-1.png';
 import posterimg from '../images/AdobeStock_141156360_PosterImage.webp';
 import firstblockimg from '../images/lastslide-two.png';
 import thirdblockimg from '../images/lastslidebottom.png';
-
 import secondvideo from '../images/second-video.mp4';
 
 
@@ -19,14 +15,12 @@ export function FullPageScroll() {
                 <section className="panelscroll relative h-screen flex flex-col items-center justify-center text-center text-white py-0 px-3">
                     <div className="flex flex-col items-center justify-center video-docker absolute top-0 left-0 w-full h-full overflow-hidden">
                         <video src={spalcevideo} type="video/mp4" playsInline poster={posterimg} autoPlay muted loop className="min-w-full min-h-full absolute object-cover"></video>
-                        <Zoom>
-                            <img alt="bannerimg" className="bannerimg animate__animated animate__zoomIn animate__delay-3s" src={bannerimg} />
-                        </Zoom>
-                        <Fade bottom>
-                            <div className="bottombannertext animate__animated animate__fadeInLeft animate__delay-3s">
-                                <h2>creative concepts+ <span>brand consultancy</span></h2>
-                            </div>
-                        </Fade>
+
+                        <img alt="bannerimg" className="bannerimg animate__animated animate__zoomIn animate__delay-3s" src={bannerimg} />
+                        <div className="bottombannertext animate__animated animate__fadeInLeft animate__delay-3s">
+                            <h2>creative concepts+ <span>brand consultancy</span></h2>
+                        </div>
+
                     </div>
                 </section>
 
@@ -53,22 +47,22 @@ export function FullPageScroll() {
                     </header>
                     <div className="flex w-11/12 mb-0 items-center items-centerhd">
                         <div className="w-3/5 fullwidthhd">
-                            <Fade left>
-                                <div className="videobox">
-                                    <video src={secondvideo} type="video/mp4" autoPlay muted loop className="min-w-full min-h-full object-cover"></video>
-                                </div>
-                            </Fade>
+
+                            <div className="videobox">
+                                <video src={secondvideo} type="video/mp4" autoPlay muted loop className="min-w-full min-h-full object-cover"></video>
+                            </div>
+
                         </div>
                         <div className="w-2/5 fullwidthhd">
                             <div className="textdescription">
-                                <Fade right>
-                                    <p>Capturing. Tickling the senses. To provoke and play with powerful emotions. Envy, Lust, Pride…
-                                        Focussed on perfection. The never-ending chase towards stronger Brand Experience, Brand
-                                        Attitude, Brand Attachment and Brand Equity. Proven drivers of conversion, loyalty, retention
-                                        and sales. Brand experts. Design by trade. Creators of immersive customer journeys. Builders of
-                                        brands.
-                                    </p>
-                                </Fade>
+
+                                <p>Capturing. Tickling the senses. To provoke and play with powerful emotions. Envy, Lust, Pride…
+                                    Focussed on perfection. The never-ending chase towards stronger Brand Experience, Brand
+                                    Attitude, Brand Attachment and Brand Equity. Proven drivers of conversion, loyalty, retention
+                                    and sales. Brand experts. Design by trade. Creators of immersive customer journeys. Builders of
+                                    brands.
+                                </p>
+
                             </div>
                         </div>
                     </div>
@@ -104,15 +98,15 @@ export function FullPageScroll() {
 
                     <div className="flex w-full mb-0 items-center">
                         <div className="w-2/5">
-                            <Fade left>
-                                <div className="textdescription-third">
-                                    <p>The journey. Where does it start? Where should it convert? Down the rabbit hole. “The customer is
-                                        always right”, but “people don’t know what they want before they see it.” We design effective
-                                        and converting customer journeys, that customers love. Online, in-store, digital and offline, we
-                                        take the essence of the brand, deeply analyze the consumer, and map out a journey that leads to
-                                        more conversion and sales.</p>
-                                </div>
-                            </Fade>
+
+                            <div className="textdescription-third">
+                                <p>The journey. Where does it start? Where should it convert? Down the rabbit hole. “The customer is
+                                    always right”, but “people don’t know what they want before they see it.” We design effective
+                                    and converting customer journeys, that customers love. Online, in-store, digital and offline, we
+                                    take the essence of the brand, deeply analyze the consumer, and map out a journey that leads to
+                                    more conversion and sales.</p>
+                            </div>
+
                         </div>
                         <div className="w-3/5">
                             <img alt="bannerimg" className="min-w-full min-h-full object-cover" src="https://cdn.shopify.com/s/files/1/0741/4464/5438/files/sava-text-testimonial-1.png?v=1684497282" />
@@ -149,12 +143,12 @@ export function FullPageScroll() {
                         </div>
                     </header>
                     <div className="textdescription-third">
-                        <Fade top>
-                            <p>The vision and narrative of a brand should be felt and seen throughout any customer journey. We help
-                                brands with finger-licking content to emphasize the message. We offer art direction and work with the
-                                best people in the creative industry. Designers, photographers, social engineers, coders, filmmakers,
-                                you name it.</p>
-                        </Fade>
+
+                        <p>The vision and narrative of a brand should be felt and seen throughout any customer journey. We help
+                            brands with finger-licking content to emphasize the message. We offer art direction and work with the
+                            best people in the creative industry. Designers, photographers, social engineers, coders, filmmakers,
+                            you name it.</p>
+
                     </div>
                     <footer>
                         <p>© Copyright 2023 Nakité BV, all rights reserved.</p>
@@ -192,20 +186,20 @@ export function FullPageScroll() {
                     <div className="textdescription-third flex w-full mb-0 items-center">
                         <div className="last-page">
                             <div className="last-page-left">
-                                <Fade left>
-                                    <h5>Intrigued?</h5>
-                                </Fade>
+
+                                <h5>Intrigued?</h5>
+
                             </div>
                             <div className="last-page-right">
-                                <Fade right>
-                                    <address>
-                                        Nakité <br /> Singel 63 <br />1012 VD Amsterdam <br /> The Netherlands
-                                    </address>
-                                    <ul>
-                                        <li><a href="tel:+31(0)202443252">+31 (0)20 244 32 52</a></li>
-                                        <li><a href="mailto:hi@nakite.studio">hi@nakite.studio</a></li>
-                                    </ul>
-                                </Fade>
+
+                                <address>
+                                    Nakité <br /> Singel 63 <br />1012 VD Amsterdam <br /> The Netherlands
+                                </address>
+                                <ul>
+                                    <li><a href="tel:+31(0)202443252">+31 (0)20 244 32 52</a></li>
+                                    <li><a href="mailto:hi@nakite.studio">hi@nakite.studio</a></li>
+                                </ul>
+
                             </div>
                         </div>
                     </div>
